@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <div class="col-6 mx-auto">
-            <form action="signups.php" method="post">
+            <form action="signup.php" method="post">
                 <input type="text" name="firstname" placeholder="firstname" >
                 <input type="text" name="lastname" placeholder="lastname">
                 <input type="email" name="email" placeholder="email">
@@ -17,15 +17,6 @@
                 <input type="text" name="address" placeholder="address">
                 <input type="submit" name="submit" value="submit button">
             </form>
-        </div>
-        <div>
-            <?php
-            session_start();
-            if(isset($_SESSION['msg'])){
-                echo '<div class="text-center alert-danger">'.$_SESSION['msg'].'</div>';
-            }
-            // unset($_SESSION['msg']);
-            ?>
         </div>
     </div>
 </body>
