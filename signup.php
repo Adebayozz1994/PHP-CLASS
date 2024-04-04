@@ -17,17 +17,17 @@ if (isset($_POST['submit'])) {
     
         if ($connect->num_rows > 0) {
             // echo 'user found';
-            $_SESSION['msg']='email exists already';
-            header('location:signups.php');
+            // $_SESSION['msg']='email exists already';
+            // header('location:signups.php');
             // $user=$connect->fetch_assoc();
             // print_r($user);
-            // echo "email already exists";
+            echo "email already exists";
         } 
         else {
             // echo 'email not found';
             $hashedpassword = password_hash($password,PASSWORD_DEFAULT);
             echo $hashedpassword;
-
+ 
             $query = "INSERT INTO `user_table` (`firstname`, `lastname`, `email`, `password`, `address`) VALUES ('$firstname', '$lastname', '$email', '$hashedpassword', '$address')";
             $connect = $connection->query($query);
             if ($connect) {

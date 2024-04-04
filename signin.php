@@ -15,12 +15,14 @@ require 'connect.php';
         $user= $connect->fetch_assoc();
         // print_r($user);
         $passwordhashed = $user['password'];
+        $userId = $user['user_id'];
         // echo 
         // echo $passwordhashed;
         $passwordverify= password_verify($password, $passwordhashed);
         // echo 'paswword verified';
         if($passwordverify){
-            $_SESSION['userId']=$user['user_id'];
+            $_SESSION['userId']=$userId;
+            header('location:dashboard.php');
             echo $_SESSION['userId'];
             echo '<div class="alert alert-danger text-center"> user found and the user id is'.$_SESSION['userId'].'</div>';
 

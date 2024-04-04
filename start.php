@@ -9,7 +9,7 @@ echo count($varone);echo '<br>';
 $varone[3]='adebayo';
 // print_r($varone); 
 echo '<br>';
-
+ 
 $assoc_array=[
     'age' => 25,
     'firstname'=>'adebayo',
