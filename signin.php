@@ -56,6 +56,7 @@ require 'connect.php';
 <body>
     <div class="container">
         <div>
+            <a href="home.php" class="btn btn-primary">home</a>
             <div>
                 <h1 class="text-center text-primary">sign in page</h1>
                 <form <?php echo $_SERVER['PHP_SELF'] ?> method="post">

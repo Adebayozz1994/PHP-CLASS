@@ -7,17 +7,28 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
-    <div class="container">
-        <div class="col-6 mx-auto">
-            <form action="signup.php" method="post">
-                <input type="text" name="firstname" placeholder="firstname" >
-                <input type="text" name="lastname" placeholder="lastname">
-                <input type="email" name="email" placeholder="email">
-                <input type="password" name="password" placeholder="password">
-                <input type="text" name="address" placeholder="address">
-                <input type="submit" name="submit" value="submit button">
-            </form>
-        </div>
+    <div class="container mt-5">
+    <a href="home.php" class="btn btn-primary mb-3">Home</a>
+    <div class="col-lg-6 col-md-8 col-sm-10 mx-auto">
+        <form action="signup.php" method="post">
+            <div class="form-group">
+                <input type="text" name="firstname" class="form-control form-input" placeholder="First Name" required>
+            </div>
+            <div class="form-group">
+                <input type="text" name="lastname" class="form-control form-input" placeholder="Last Name" required>
+            </div>
+            <div class="form-group">
+                <input type="email" name="email" class="form-control form-input" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+                <input type="password" name="password" class="form-control form-input" placeholder="Password" required>
+            </div>
+            <div class="form-group">
+                <input type="text" name="address" class="form-control form-input" placeholder="Address">
+            </div>
+            <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+        </form>
     </div>
+</div>
 </body>
 </html>
