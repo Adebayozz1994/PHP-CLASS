@@ -1,11 +1,7 @@
 <?php
-// Define the directory where your pictures are stored
+
 $picture_directory = 'pictures/';
-
-// Get all files from the picture directory
 $files = scandir($picture_directory);
-
-// Filter out only image files (extensions: jpg, jpeg, png, gif)
 $image_files = array_filter($files, function($file) {
     $extension = strtolower(pathinfo($file, PATHINFO_EXTENSION));
     return in_array($extension, ['jpg', 'jpeg', 'png', 'gif']);
@@ -39,31 +35,25 @@ $image_files = array_filter($files, function($file) {
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow position-sticky top-0">
         <div class="container">
-            <a class="navbar-brand" href="#">Navbar</a>
+            <a class="navbar-brand fw-bold fs-1 text-danger" href="#">PICS-WORLD</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
+                        <a class="nav-link text-danger fw-semibold" href="home.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
+                        <a class="nav-link text-danger fw-semibold" href="dashboard.php">Dashboard</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Services</a>
+                        <a class="nav-link text-danger fw-semibold" href="signin.php">Signin</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="dashboard.php">Dashboard</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="signin.php">Sign In</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="signups.php">Sign Up</a>
+                        <a class="nav-link text-danger fw-semibold" href="signups.php">Signup</a>
                     </li>
                 </ul>
             </div>
