@@ -9,11 +9,15 @@ class Myclass {
     public function myfunction() {
         echo $this->name ;
         echo $this->school ;
+        echo $this->address ;
 
 
     }
     public function __construct($name) {
-        echo 'constructor';
+        echo 'constructor is connected' .$name;
+    }
+    public function __destruct() {
+        echo 'destructor is connected';
     }
 
 }
@@ -27,6 +31,7 @@ $newClass->myfunction();
 class Secondclass extends Myclass {
     public function echouser() {
         echo $this->user ;
+        echo $this->address ;
 
     }
 }
