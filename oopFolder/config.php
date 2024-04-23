@@ -23,5 +23,18 @@ class config{
         }
         return $this->result;
     }
+
+
+    public function checkIfExist($query, $binder){
+        $stmt = $this->connect->prepare($query);
+        $stmt->bind_param(...$binder);
+        $stmt->execute();
+        $result = mysqli_stmt_get_result($stmt);
+        if(mysqli_num_rows($result)>0){
+            return true;
+        }else {
+            return false;
+        }
+     }
 }
 ?>

@@ -10,12 +10,33 @@ class User extends config{
     $hashpassword = password_hash($password, PASSWORD_DEFAULT);
     $binder = array('sssss', $firstname, $lastname, $email, $hashpassword, $address);
     // parent::create($query, $binder);
-    $result = $this->create($query, $binder);
-    if($result){
-        echo 'user save successfully';
-    }else{
-        echo 'user not save';
+
+    $emailQuery = "SELECT * FROM `user_table` WHERE `email` = ?";
+    $emailBinder = array('s', $email);
+    $emailResult = $this->checkIfExist($emailQuery, $emailBinder);
+    if($emailResult) {
+        return [
+            'status' => false,
+            'message' => 'email already exist'
+        ];
+    }else {
+        $result = $this->create($query, $binder);
+        if($result){
+            // echo 'user save successfully';
+            [
+                'status' => true,
+                'message' => 'user save successfully'
+            ];
+        }else{
+            // echo 'user not save';
+            [
+                'status' => false,
+                'message' => 'error occured'
+            ];
+        }
+
     }
+
 
 
     //  $this->connect->prepare($query);

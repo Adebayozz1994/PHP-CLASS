@@ -1,12 +1,69 @@
 <?php
 require ("users.php");
 
-$firstname = "adebayo";
-$lastname = "peter";
-$email = "mondayzzzZz@gmail.com";
-$password = "Peter1234";
-$address = "no 123, abuleegba";
+$firstname = $_POST['firstname'];
+$lastname = $_POST['lastname'];
+$email = $_POST['email'];
+$password = $_POST['password'];
+$address = $_POST['address'];
 
 
 $newUser = new User;
-$newUser->createUser($firstname, $lastname, $email, $password, $address);
+$response = $newUser->createUser($firstname, $lastname, $email, $password, $address);
+ echo $response;
+
+
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+<div class="container mt-5">
+    <div class="col-lg-6 col-md-8 col-sm-10 mx-auto">
+        <form <?php echo $_SERVER['PHP_SELF']?> method="post">
+        <div>
+            <?php
+            if ($response['status']) {
+                echo "<p class='text-success'>".$response['message']."</p>";
+            }else{
+                echo "<p class='text-danger'>".$response['message']."</p>";
+            }
+            ?>
+        </div>
+            <div class="form-group">
+                <label for="">FirstName</label>
+                <input type="text" name="firstname" class="form-control form-input" placeholder="First Name" required>
+            </div>
+            <div class="form-group">
+            <label for="">LastName</label>
+
+                <input type="text" name="lastname" class="form-control form-input" placeholder="Last Name" required>
+            </div>
+            <div class="form-group">
+            <label for="">Email</label>
+
+                <input type="email" name="email" class="form-control form-input" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+            <label for="">Password</label>
+
+                <input type="password" name="password" class="form-control form-input" placeholder="Password" required>
+            </div>
+            <div class="form-group">
+            <label for="">Address</label>
+
+                <input type="text" name="address" class="form-control form-input" placeholder="Address">
+            </div>
+            <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
